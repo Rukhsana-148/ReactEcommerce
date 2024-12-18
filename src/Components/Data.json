@@ -1,0 +1,62 @@
+[
+    {
+        "type":"Shoe",
+     "info":[
+            {
+                "name" : "White Shoe",
+                "price" : 450,
+                "img" : "shoe.jpeg"
+                
+            },
+            {
+                "name" : "Apex Shoe",
+                "price" : 450,
+                "img" : "apex.jpeg"
+               
+            }
+        ]
+    },
+    {
+        "type":"Hill",
+     "info":[
+        {
+            "name" : "Black High Hill",
+            "price" : 450,
+            "img" : "hill.jpeg"
+        },{
+    
+        "name" : "Skin High Hill",
+        "price" : 450,
+        "img" : "hill1.jpeg"
+    },{
+        "name" : "Flat Hill",
+        "price" : 450,
+        "img" : "flathill.jpeg"
+        
+    }
+        ]
+    },{
+        "type":"Baby Shoe",
+     "info":[
+        {
+            "name" : "Cotton Shoe",
+            "price" : 450,
+            "img" : "cotton.jpeg"
+        },{
+            "name" : "Baby Shoe",
+            "price" : 450,
+            "img" : "baby.jpeg"
+        },{
+            "name" : "Pink Hill",
+            "price" : 450,
+            "img" : "pink.jpeg"
+        },{
+            "name" : "Red HilShoel",
+            "price" : 450,
+            "img" : "red.jpeg"
+            
+        }
+        ]
+    }
+   
+]
