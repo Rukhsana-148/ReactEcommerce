@@ -20,31 +20,81 @@ console.log("Pages"+pages)
 const numbers = [...Array(pages+1).keys()].slice(1);
 console.log("Numbers  : " +numbers)
 //filter by type
+const types:string[] =[];
+    let count =0;
+    for(let i = 0; i < data.length;i++){
+      if(!types.includes(data[i].type)){
+      types.push(data[i].type);
+      }
+    }
+function gettype(type){
+setSelectedItem(type)
 
+}
 
 
   return (
     <div className='px-[60px] py-[10px] '>
       <p className='text-3xl font-bold font-mono text-center'>Products</p>
 
-<Filter
-></Filter>
+     <div class="flex">
+
+{
+  types.map((type, index)=>{
+    return<>
+<ul className="flex">
+  <li key={index} className="px-7 py-2 bg-gray-300 mr-5" onClick={()=>gettype(
+    type
+  )
+
+  }
+  >
+    {type}
+  </li>
+
+</ul>
+</>
+  }
+)
+}
+
+</div>
+
+
     <div className="allProducts grid grid-cols-4 gap-2">
     
 {
 records
  .map((infos)=>{
-  return<>
-  <div className="card w-[300px]  rounded px-7 py-7">
-          <img src={infos.img} alt="shoes" className='w-[200px] h-[160px]'/>
-
-          <div className="flex py-3"><p className='w-[250px]'>{infos.name
-            }</p><p className='ml-[130px]'>{infos.price
-            }/=</p></div>
-          
-          <p className='btn text-center w-full bg-black py-[10px] rounded text-white' onClick={addToCart}>Add To Cart</p>
-        </div>
-  </>
+  if(infos.type==selectedItem){
+    console.log(selectedItem)
+    return<>
+ 
+    <div className="card w-[300px]  rounded px-7 py-7">
+            <img src={infos.img} alt="shoes" className='w-[200px] h-[160px]'/>
+  
+            <div className="flex py-3"><p className='w-[250px]'>{infos.name
+              }</p><p className='ml-[130px]'>{infos.price
+              }/=</p></div>
+            
+            <p className='btn text-center w-full bg-black py-[10px] rounded text-white' onClick={addToCart}>Add To Cart</p>
+          </div>
+    </>
+  }if(selectedItem==""){
+    return<>
+ 
+    <div className="card w-[300px]  rounded px-7 py-7">
+            <img src={infos.img} alt="shoes" className='w-[200px] h-[160px]'/>
+  
+            <div className="flex py-3"><p className='w-[250px]'>{infos.name
+              }</p><p className='ml-[130px]'>{infos.price
+              }/=</p></div>
+            
+            <p className='btn text-center w-full bg-black py-[10px] rounded text-white' onClick={addToCart}>Add To Cart</p>
+          </div>
+    </>
+  }
+  
  }
  )
 }

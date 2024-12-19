@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import { Products } from './Products'
-export const Home = () => {
 
+
+export const Home = () => {
+ 
+  
   return (
     <>
     <div className='bg-gray-300 flex'>
@@ -12,7 +15,7 @@ export const Home = () => {
             <p className="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe fugiat vero quasi recusandae, amet culpa voluptas molestiae labore maxime, asperiores quas dolorum minus quo nemo error voluptates magni obcaecati quibusdam?</p>
         </div>
     </div>
-   
+    
     </>
   )
 }
