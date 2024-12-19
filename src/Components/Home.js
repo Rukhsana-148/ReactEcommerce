@@ -4,9 +4,10 @@ import Swal from 'sweetalert2'
 
 export const Home = ({mainPage}) => {
   const [cartCount, setCartCount] = useState(0); 
-const handleCart = () => {
+const handleCart1 = () => {
      const  Count = cartCount+1;
-      setCartCount(Count); 
+      setCartCount(Count)
+      
       Swal.fire({
         title: "Producted is Added!",
         icon: "success",
@@ -25,7 +26,7 @@ const handleCart = () => {
             <p className="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe fugiat vero quasi recusandae, amet culpa voluptas molestiae labore maxime, asperiores quas dolorum minus quo nemo error voluptates magni obcaecati quibusdam?</p>
         </div>
     </div>
-        <Products addToCart={handleCart}/>
+        <Products addToCart={handleCart1}/>
     </>
   )
 }

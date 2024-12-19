@@ -3,9 +3,12 @@ import Popup from 'reactjs-popup'
 import data from './products.json'
 import Type from './Data.json'
 import { Filter } from './Filter'
+import Swal from 'sweetalert2'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-export const Products = ({addToCart}) => {
 
+export const Products = ({addToCart}) => {
+ 
+ 
   const[currentPage, setCurrentPage] = useState(1);
 
   const productPerPgae = 4;
