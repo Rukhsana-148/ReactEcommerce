@@ -1,11 +1,21 @@
 import React, {useState} from 'react'
-
 import { Products } from './Products'
+import Swal from 'sweetalert2'
 
-
-export const Home = () => {
- 
-  
+export const Home = ({mainPage}) => {
+  const [cartCount, setCartCount] = useState(0); 
+const handleCart = () => {
+     const  Count = cartCount+1;
+      setCartCount(Count); 
+      Swal.fire({
+        title: "Producted is Added!",
+        icon: "success",
+        draggable: true,
+        
+        text: "Product has been added to your cart!",
+      });
+      mainPage(Count)
+    };
   return (
     <>
     <div className='bg-gray-300 flex'>
@@ -15,7 +25,7 @@ export const Home = () => {
             <p className="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe fugiat vero quasi recusandae, amet culpa voluptas molestiae labore maxime, asperiores quas dolorum minus quo nemo error voluptates magni obcaecati quibusdam?</p>
         </div>
     </div>
-    
+        <Products addToCart={handleCart}/>
     </>
   )
 }

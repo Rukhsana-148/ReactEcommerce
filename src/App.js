@@ -8,21 +8,21 @@ import { About } from './Components/About';
 import { FaCartShopping } from 'react-icons/fa6'
 import { Users } from './Components/Users';
 import Swal from 'sweetalert2';
+import { CountButton } from './Components/CountButton';
 
 function App() {
-   const [cartCount, setCartCount] = useState(1); 
+   const [cartCount, setCartCount] = useState(0); 
+    const[number, setNumber] = useState(0)
+
     
-  
-    const handleCart = () => {
-      setCartCount(cartCount + 1); 
-      Swal.fire({
-        title: "Producted is Added!",
-        icon: "success",
-        draggable: true,
-        
-        text: "Product has been added to your cart!",
-      });
+
+    const countHandle = (count) => {
+     setCartCount(count)
     };
+
+    const handleCount = (value) =>{
+            setNumber(value)
+    }
   return (
     <div className="App">
       <Router>
@@ -38,22 +38,24 @@ function App() {
         
         <li className="mx-5"><Link  to="/">Home</Link></li>      
         <li className="mx-5"><Link to="/products">Products</Link></li>
-        <li className="mx-5"><Link to="/contacts">Contact</Link></li>
+        <li className="mx-5"><Link to="/count">Counter</Link></li>
+        <li className="mx-5">{number}<Link to="/contacts">Contact</Link></li>
         <li className="mx-5"><Link to="/users">Users</Link></li>
-        <li><sup></sup><FaCartShopping></FaCartShopping></li>
+        <li><sup>{cartCount}</sup><FaCartShopping></FaCartShopping></li>
        </ul>
       
       </div>
      </div>
      <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home mainPage = {countHandle}/>}/>
         <Route path="/about" element={<About/>}/>
-        <Route path="/prodcuts" element={<Products/>}/>
-        <Route path="/contacts" element={<Contacts/>}/>
+        <Route path="/prodcuts" element={<Products addToCart={countHandle}/>}/>
+        <Route path="/count" element={<CountButton updateCounter={handleCount}/>}/>
+        <Route path="/contacts" element={<Contacts />}/>
         <Route path="/users" element={<Users/>}/>
        </Routes>
        </Router>
-        <Products addToCart={handleCart}/>
+     
       </div>
      
     
